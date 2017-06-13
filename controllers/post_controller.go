@@ -17,27 +17,11 @@ func (this *PostController) Index() {
 	this.TplName = "post/index.html"
 }
 
-//func (this *PostController) Create() {
-//  post := post.Post{
-//    Content: this:GetString("content")
-//  }
-//
-//  err := this.repository.Save(&post)
-//  flash := beego.NewFlash()
-//  if err != nil {
-//    flash.Error("errrrr")
-//  } else {
-//  flash.Notice("saved")
-//  }
-//  flash.Store(&this.Controller)
-//
-//  this.Redirect("/",302)
-//}
-
 func (this *PostController) Create() {
 	post := post.Post{
 		Comment: this.GetString("comment"),
 	}
+	println(this.GetString("comment"))
 
 	err := this.repository.Save(&post)
 	flash := beego.NewFlash()
